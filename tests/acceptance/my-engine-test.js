@@ -19,27 +19,27 @@ module('Acceptance | my-engine', function (hooks) {
     assert.expect(1);
 
     class MockLocalService extends Service {
-      value = 'mock';
+      value = 'mocked';
     }
 
     this.owner.register('service:local-service', MockLocalService);
 
     await visit('/my-engine');
 
-    assert.dom(this.element).containsText('Engine local service: <mock>');
+    assert.dom(this.element).containsText('Engine local service: <mocked>');
   });
 
   test('mocking common service', async function (assert) {
     assert.expect(1);
 
     class MockCommonService extends Service {
-      value = 'mock';
+      value = 'mocked';
     }
 
     this.owner.register('service:common-service', MockCommonService);
 
     await visit('/my-engine');
 
-    assert.dom(this.element).containsText('Engine common service: <mock>');
+    assert.dom(this.element).containsText('Engine common service: <mocked>');
   });
 });
